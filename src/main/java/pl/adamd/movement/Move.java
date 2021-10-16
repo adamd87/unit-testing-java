@@ -4,30 +4,37 @@ public class Move {
     private int startingPoint;
     private int endPoint;
     private int lengthOfTheMovement;
-
-    public int getStartingPoint() {
-        return startingPoint;
-    }
+    private int numOfMoves = 1;
 
     public void setStartingPoint(int startingPoint) {
         this.startingPoint = startingPoint;
-    }
-
-    public int getEndPoint() {
-        return endPoint;
     }
 
     public void setEndPoint(int endPoint) {
         this.endPoint = endPoint;
     }
 
+    public void setLengthOfTheMovement(int lengthOfTheMovement) {
+        this.lengthOfTheMovement = lengthOfTheMovement;
+    }
+
+    public void setNumOfMoves(int numOfMoves) {
+        this.numOfMoves = numOfMoves;
+    }
+
+    public int getStartingPoint() {
+        return startingPoint;
+    }
+
+    public int getEndPoint() {
+        return endPoint;
+    }
+
+
     public int getLengthOfTheMovement() {
         return lengthOfTheMovement;
     }
 
-    public void setLengthOfTheMovement(int lengthOfTheMovement) {
-        this.lengthOfTheMovement = lengthOfTheMovement;
-    }
 
     public Move(int startingPoint, int endPoint, int lengthOfTheMovement) {
         this.startingPoint = startingPoint;
@@ -35,11 +42,10 @@ public class Move {
         this.lengthOfTheMovement = lengthOfTheMovement;
     }
 
-    public int move(int startingPoint, int endPoint, int lengthOfTheMovement) {
+    public int moveForward(int startingPoint, int endPoint, int lengthOfTheMovement) {
         int distance = startingPoint + lengthOfTheMovement;
-        int numOfMoves = 1;
 
-        if (startingPoint == endPoint) {
+        if (startingPoint >= endPoint || lengthOfTheMovement == 0) {
             return 0;
         }
         while (distance < endPoint) {
