@@ -1,10 +1,17 @@
 package pl.adamd.unit_tests.testing;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.List;
+import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MealTest {
@@ -28,7 +35,7 @@ assertj-core:
     }
 
     @Test
-    void referencesToTheSameObjectShouldBeEqual(){
+    void referencesToTheSameObjectShouldBeEqual() {
         //given
         Meal meal1 = new Meal(10);
         Meal meal2 = meal1;
@@ -45,7 +52,7 @@ assertj-core:
     }
 
     @Test
-    void referencesToDifferentObjectShouldNotBeEqual(){
+    void referencesToDifferentObjectShouldNotBeEqual() {
         //given
         Meal meal1 = new Meal(10);
         Meal meal2 = new Meal(20);
@@ -62,7 +69,7 @@ assertj-core:
     }
 
     @Test
-    void twoMealsShouldBeEqualWhenPriceAndNameAreTheSame(){
+    void twoMealsShouldBeEqualWhenPriceAndNameAreTheSame() {
         Meal meal1 = new Meal(10, "Burger");
         Meal meal2 = new Meal(10, "Burger");
 
@@ -78,7 +85,7 @@ assertj-core:
     }
 
     @Test
-    void exceptionShouldBeThrownIfDiscountIsHigherThanThePrice(){
+    void exceptionShouldBeThrownIfDiscountIsHigherThanThePrice() {
 
         //given
         Meal meal = new Meal(8, "Soup");
@@ -86,5 +93,47 @@ assertj-core:
         //when
         //then
         assertThrows(IllegalArgumentException.class, () -> meal.getDiscountedPrice(18));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {5, 10, 15, 18})
+    void mealPricesShouldBeLowerThan20(int price) {
+        assertThat(price, lessThan(20));
+    }
+
+    @ParameterizedTest
+    @MethodSource("createMealsWithNameAndPrice")
+    void burgerShouldHaveCorrectNameAndPrice(String name, int price) {
+        assertThat(name, containsString("burger"));
+        assertThat(price, greaterThanOrEqualTo(10));
+    }
+
+    private static Stream<Arguments> createMealsWithNameAndPrice() {
+        return Stream.of(
+                Arguments.of("Hamburger", 10),
+                Arguments.of("Cheeseburger", 12)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("createCakeNames")
+    void cakeNamesShouldEndWithCake(String name) {
+        assertThat(name, notNullValue());
+        assertThat(name, endsWith("cake"));
+    }
+
+    private static Stream<String> createCakeNames() {
+        List<String> cakeNames = List.of("Cupcake", "Cheesecake", "Fruitcake");
+        return cakeNames.stream();
+    }
+
+    @ExtendWith(IAExceptionIgnoreExtension.class)
+    @ParameterizedTest
+    @ValueSource(ints = {1, 3, 5, 8})
+    void mealPricesShouldBeLowerThan10(int price) {
+        if (price > 5){
+            throw new IllegalArgumentException();
+        }
+            assertThat(price, lessThan(20));
     }
 }
