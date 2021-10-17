@@ -1,16 +1,18 @@
 package pl.adamd.unit_tests.testing;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 class AccountTest {
 
     @Test
-    void newAccountShouldNotBeActiveAfterCreation(){
+    void newAccountShouldNotBeActiveAfterCreation() {
         //given
         Account newAccount = new Account();
         //then
@@ -27,7 +29,7 @@ assertj-core:
     }
 
     @Test
-    void accountShouldBeActiveAfterActivation(){
+    void accountShouldBeActiveAfterActivation() {
         //given
         Account newAccount = new Account();
         //when
@@ -45,7 +47,7 @@ assertj-core:
     }
 
     @Test
-    void newlyCreatedAccountShouldNotHaveDefaultDeliveryAddressSet(){
+    void newlyCreatedAccountShouldNotHaveDefaultDeliveryAddressSet() {
         //given
         Account newAccount = new Account();
         //when
@@ -63,7 +65,7 @@ assertj-core:
     }
 
     @Test
-    void defaultDeliveryAddressShouldNotBeNullAfterBeingSet(){
+    void defaultDeliveryAddressShouldNotBeNullAfterBeingSet() {
         //given
         Address address = new Address("Konstytucji", "12");
         Account newAccount = new Account();
@@ -82,4 +84,17 @@ assertj-core:
 */
 
     }
+
+    @RepeatedTest(5)
+    void newAccountWithNotNullAddressShouldByActive() {
+        //given
+        Address address = new Address("Wall Street", "11");
+        //when
+        Account account = new Account(address);
+        //then
+        assumingThat(address != null, () -> {
+            assertTrue(account.isActive());
+        });
+    }
+
 }
