@@ -5,8 +5,6 @@ import org.junit.jupiter.api.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class OrderBackupTest {
 
     private static OrderBackup orderBackup;
@@ -27,10 +25,11 @@ class OrderBackupTest {
         orderBackup.getWriter().append(" backed up.");
     }
 
+    @Tag("Fries")
     @Test
     void backupOrderWithOneMeal() throws IOException {
         //given
-        Meal meal = new Meal(15, "Fish and Chips");
+        Meal meal = new Meal(15, "Fries");
         Order order = new Order();
         order.addMealToOrder(meal);
 
