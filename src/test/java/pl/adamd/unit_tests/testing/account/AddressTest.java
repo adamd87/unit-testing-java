@@ -1,4 +1,4 @@
-package pl.adamd.unit_tests.testing;
+package pl.adamd.unit_tests.testing.account;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;

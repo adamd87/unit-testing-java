@@ -1,11 +1,11 @@
-package pl.adamd.unit_tests.testing;
+package pl.adamd.unit_tests.testing.order;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
+import pl.adamd.unit_tests.testing.order.OrderStatus;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class OrderStatusTest {
     @ParameterizedTest

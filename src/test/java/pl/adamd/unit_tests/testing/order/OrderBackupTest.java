@@ -1,6 +1,9 @@
-package pl.adamd.unit_tests.testing;
+package pl.adamd.unit_tests.testing.order;
 
 import org.junit.jupiter.api.*;
+import pl.adamd.unit_tests.testing.Meal;
+import pl.adamd.unit_tests.testing.order.Order;
+import pl.adamd.unit_tests.testing.order.OrderBackup;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -30,7 +33,7 @@ class OrderBackupTest {
     void backupOrderWithOneMeal() throws IOException {
         //given
         Meal meal = new Meal(15, "Fries");
-        Order order = new Order();
+        pl.adamd.unit_tests.testing.order.Order order = new Order();
         order.addMealToOrder(meal);
 
         //when

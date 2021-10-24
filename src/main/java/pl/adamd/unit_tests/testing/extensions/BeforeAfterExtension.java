@@ -1,4 +1,4 @@
-package pl.adamd.unit_tests.testing;
+package pl.adamd.unit_tests.testing.extensions;
 
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;

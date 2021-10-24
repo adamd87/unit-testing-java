@@ -1,4 +1,6 @@
-package pl.adamd.unit_tests.testing;
+package pl.adamd.unit_tests.testing.order;
+
+import pl.adamd.unit_tests.testing.Meal;
 
 import java.util.ArrayList;
 import java.util.List;

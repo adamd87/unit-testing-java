@@ -1,5 +1,7 @@
 package pl.adamd.unit_tests.testing;
 
+import pl.adamd.unit_tests.testing.order.Order;
+
 import java.util.ArrayList;
 import java.util.List;
 

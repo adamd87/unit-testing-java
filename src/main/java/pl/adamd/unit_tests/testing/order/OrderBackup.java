@@ -1,4 +1,4 @@
-package pl.adamd.unit_tests.testing;
+package pl.adamd.unit_tests.testing.order;
 
 import java.io.*;
 

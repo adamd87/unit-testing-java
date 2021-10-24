@@ -1,4 +1,4 @@
-package pl.adamd.unit_tests.testing;
+package pl.adamd.unit_tests.testing.extensions;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
