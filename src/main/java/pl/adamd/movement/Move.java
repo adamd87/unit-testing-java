@@ -6,22 +6,6 @@ public class Move {
     private int lengthOfTheMovement;
     private int numOfMoves = 1;
 
-    public void setStartingPoint(int startingPoint) {
-        this.startingPoint = startingPoint;
-    }
-
-    public void setEndPoint(int endPoint) {
-        this.endPoint = endPoint;
-    }
-
-    public void setLengthOfTheMovement(int lengthOfTheMovement) {
-        this.lengthOfTheMovement = lengthOfTheMovement;
-    }
-
-    public void setNumOfMoves(int numOfMoves) {
-        this.numOfMoves = numOfMoves;
-    }
-
     public int getStartingPoint() {
         return startingPoint;
     }

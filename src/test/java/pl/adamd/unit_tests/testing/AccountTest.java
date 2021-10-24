@@ -3,11 +3,10 @@ package pl.adamd.unit_tests.testing;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 class AccountTest {
 
@@ -96,5 +95,25 @@ assertj-core:
             assertTrue(account.isActive());
         });
     }
+
+    @Test
+    void invalidEmailShouldThrowException(){
+        //given
+        Account account = new Account();
+        //when
+        //given
+        assertThrows(IllegalArgumentException.class, ()-> account.setEmail("wrongEmail"));
+    }
+
+    @Test
+    void validEmailShouldBeSet(){
+        //given
+        Account account = new Account();
+        //when
+        account.setEmail("adam.drozdz1987@gmail.com");
+        //then
+        assertThat(account.getEmail(), is("adam.drozdz1987@gmail.com"));
+    }
+
 
 }
