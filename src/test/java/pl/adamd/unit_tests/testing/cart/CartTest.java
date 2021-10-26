@@ -1,7 +1,8 @@
-package pl.adamd.unit_tests.testing;
+package pl.adamd.unit_tests.testing.cart;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pl.adamd.unit_tests.testing.Meal;
 import pl.adamd.unit_tests.testing.order.Order;
 
 import java.time.Duration;
@@ -9,7 +10,8 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 @DisplayName("Test cases for Cart")
 class CartTest {
