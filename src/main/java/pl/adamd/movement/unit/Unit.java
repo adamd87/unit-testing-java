@@ -1,4 +1,7 @@
-package pl.adamd.movement;
+package pl.adamd.movement.unit;
+
+import pl.adamd.movement.cargo.Cargo;
+import pl.adamd.movement.Coordinates;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,5 +84,13 @@ public class Unit {
 
     public int getLoad() {
         return this.currentCargoWeight;
+    }
+
+    public Coordinates getCoordinates() {
+        return this.coordinates;
+    }
+
+    public List<Cargo> getCargo() {
+        return this.cargo;
     }
 }

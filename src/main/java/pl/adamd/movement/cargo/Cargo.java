@@ -1,4 +1,4 @@
-package pl.adamd.movement;
+package pl.adamd.movement.cargo;
 
 import java.util.Objects;
 
@@ -6,7 +6,7 @@ public class Cargo {
     private String name;
     private int weight;
 
-    Cargo(String name, int weight) {
+    public Cargo(String name, int weight) {
         this.name = name;
         this.weight = weight;
     }
@@ -22,6 +22,10 @@ public class Cargo {
     @Override
     public int hashCode() {
         return Objects.hash(name, weight);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getWeight() {

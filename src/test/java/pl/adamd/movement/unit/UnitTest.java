@@ -1,7 +1,9 @@
-package pl.adamd.movement;
+package pl.adamd.movement.unit;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import pl.adamd.movement.cargo.Cargo;
+import pl.adamd.movement.Coordinates;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
