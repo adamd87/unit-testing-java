@@ -27,4 +27,8 @@ public class UnitRepository {
     Unit getUnitByCoordinates(Coordinates coordinates){
         return units.get(coordinates);
     }
+
+    public Map<Coordinates, Unit> getUnits() {
+        return units;
+    }
 }

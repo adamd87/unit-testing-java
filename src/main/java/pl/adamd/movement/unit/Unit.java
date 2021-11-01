@@ -54,7 +54,7 @@ public class Unit {
         }
     }
 
-    void loadCargo(Cargo cargo) {
+    public void loadCargo(Cargo cargo) {
         if (currentCargoWeight + cargo.getWeight() > maxCargoWeight) {
             throw new IllegalStateException("Can not load any more cargo");
         }
@@ -64,7 +64,7 @@ public class Unit {
         this.currentCargoWeight = calculateCargoWeight();
     }
 
-    void unloadCargo(Cargo cargo) {
+    public void unloadCargo(Cargo cargo) {
         this.cargo.remove(cargo);
         this.currentCargoWeight = calculateCargoWeight();
     }

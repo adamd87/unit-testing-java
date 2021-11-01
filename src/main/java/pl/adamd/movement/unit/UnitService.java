@@ -8,8 +8,14 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class UnitService {
-    private CargoRepository cargoRepository = new CargoRepository();
-    private UnitRepository unitRepository = new UnitRepository();
+
+    private final CargoRepository cargoRepository ;
+    private final UnitRepository unitRepository ;
+
+    public UnitService(CargoRepository cargoRepository, UnitRepository unitRepository) {
+        this.cargoRepository = cargoRepository;
+        this.unitRepository = unitRepository;
+    }
 
     void addCargoByName(Unit unit, String name) {
         Optional<Cargo> cargo = cargoRepository.findCargoByName(name);
@@ -30,4 +36,6 @@ public class UnitService {
             return unit;
         }
     }
+
 }
+
